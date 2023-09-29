@@ -13,5 +13,5 @@ import java.util.Set;
 public class OrderDto {
   String whoCreated;
   String language;
-  Set<ProductDto> products;
+  Set<ProductInOrder> products;
 }

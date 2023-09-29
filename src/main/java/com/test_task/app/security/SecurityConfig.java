@@ -52,6 +52,8 @@ public class SecurityConfig {
                             .anyRequest().authenticated())
             .httpBasic(Customizer.withDefaults())
             .csrf(AbstractHttpConfigurer::disable)
+            .headers(AbstractHttpConfigurer::disable)
             .build();
+
   }
 }
