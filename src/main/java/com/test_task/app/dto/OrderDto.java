@@ -5,7 +5,7 @@ import lombok.Builder;
 import lombok.Value;
 import lombok.experimental.FieldDefaults;
 
-import java.util.List;
+import java.util.Set;
 
 @Value
 @Builder
@@ -13,5 +13,5 @@ import java.util.List;
 public class OrderDto {
   String whoCreated;
   String language;
-  List<ProductDto> products;
+  Set<ProductDto> products;
 }

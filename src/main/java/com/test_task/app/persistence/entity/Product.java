@@ -19,11 +19,14 @@ public class Product {
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   Long id;
 
-  @Column(name = "name")
+  @Column(name = "name", nullable = false)
   String name;
 
   @Column(name = "price", nullable = false)
   String price;
+
+  @Column(name = "quantity", nullable = false)
+  Long quantity;
 
   @ManyToMany(mappedBy = "products")
   Set<Order> orders;

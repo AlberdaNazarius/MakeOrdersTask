@@ -20,7 +20,7 @@ public class OrderController {
   private final OrderService orderService;
   private final OrderMapper orderMapper;
 
-  @GetMapping
+  @GetMapping("orders")
   public ResponseEntity<List<OrderDto>> retrieveAllOrders() {
     final var allOrders = orderService.getAllOrders();
     final var response = orderMapper.orderListToOrderDtoList(allOrders);

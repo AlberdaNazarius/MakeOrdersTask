@@ -26,7 +26,8 @@ public class Order {
   @Column(name = "language")
   String language;
 
-  @ManyToMany
+  // TODO make to not creating new instances of this one when do post request
+  @ManyToMany(cascade = CascadeType.ALL)
   @JoinTable(name = "orders_products",
           joinColumns = @JoinColumn(name = "order_id"),
           inverseJoinColumns = @JoinColumn(name = "product_id"))
