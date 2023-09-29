@@ -4,7 +4,9 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
+import org.hibernate.annotations.CreationTimestamp;
 
+import java.time.ZonedDateTime;
 import java.util.Set;
 
 @Entity(name = "order")
@@ -23,8 +25,9 @@ public class Order {
   @Column(name = "who_created")
   String whoCreated;
 
-  @Column(name = "language")
-  String language;
+  @CreationTimestamp
+  @Column(name = "creation_date")
+  ZonedDateTime creationDate;
 
   @ManyToMany
   @JoinTable(name = "orders_products",
@@ -34,5 +37,5 @@ public class Order {
   Set<Product> products;
 
   @Column(name = "is_paid")
-  Boolean isPaid;
+  boolean isPaid;
 }

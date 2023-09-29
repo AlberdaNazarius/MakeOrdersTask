@@ -5,6 +5,7 @@ import lombok.Builder;
 import lombok.Value;
 import lombok.experimental.FieldDefaults;
 
+import java.time.ZonedDateTime;
 import java.util.Set;
 
 @Value
@@ -12,6 +13,6 @@ import java.util.Set;
 @FieldDefaults(level = AccessLevel.PRIVATE)
 public class OrderDto {
   String whoCreated;
-  String language;
+  ZonedDateTime creationDate;
   Set<ProductInOrder> products;
 }
