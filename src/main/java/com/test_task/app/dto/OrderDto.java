@@ -15,4 +15,5 @@ public class OrderDto {
   String whoCreated;
   ZonedDateTime creationDate;
   Set<ProductInOrder> products;
+  boolean paid;
 }

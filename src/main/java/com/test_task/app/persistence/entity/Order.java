@@ -37,5 +37,5 @@ public class Order {
   Set<Product> products;
 
   @Column(name = "is_paid")
-  boolean isPaid;
+  boolean paid;
 }

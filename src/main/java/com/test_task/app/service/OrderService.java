@@ -7,4 +7,5 @@ import java.util.List;
 public interface OrderService {
   List<Order> getAllOrders();
   Order addOrder(Order order);
+  Order markAsPaid(Long orderId);
 }
