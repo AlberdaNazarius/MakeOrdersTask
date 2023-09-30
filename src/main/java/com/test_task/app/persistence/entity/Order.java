@@ -29,12 +29,9 @@ public class Order {
   @Column(name = "creation_date")
   ZonedDateTime creationDate;
 
-  @ManyToMany
-  @JoinTable(name = "orders_products",
-          joinColumns = @JoinColumn(name = "order_id"),
-          inverseJoinColumns = @JoinColumn(name = "product_id"))
+  @OneToMany(mappedBy = "order", cascade = CascadeType.REMOVE)
   @JsonIgnoreProperties("products")
-  Set<Product> products;
+  Set<OrderProduct> products;
 
   @Column(name = "is_paid")
   boolean paid;

@@ -1,5 +1,6 @@
 package com.test_task.app.persistence.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
@@ -28,6 +29,7 @@ public class Product {
   @Column(name = "quantity", nullable = false)
   Long quantity;
 
-  @ManyToMany(mappedBy = "products")
-  Set<Order> orders;
+  @JsonIgnore
+  @OneToMany(mappedBy = "product")
+  Set<OrderProduct> orders;
 }

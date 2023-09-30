@@ -1,8 +1,10 @@
 package com.test_task.app.service.imp;
 
+import com.test_task.app.dto.SendOrderDto;
 import com.test_task.app.exception.OrderNotFoundException;
 import com.test_task.app.persistence.entity.Order;
 import com.test_task.app.persistence.repository.OrderRepository;
+import com.test_task.app.service.OrderProductService;
 import com.test_task.app.service.OrderService;
 import jakarta.annotation.Nonnull;
 import lombok.RequiredArgsConstructor;
@@ -15,6 +17,7 @@ import java.util.List;
 public class OrderServiceImp implements OrderService {
 
   private final OrderRepository orderRepository;
+  private final OrderProductService orderProductService;
 
   @Override
   public List<Order> getAllOrders() {
@@ -22,7 +25,10 @@ public class OrderServiceImp implements OrderService {
   }
 
   @Override
-  public Order addOrder(@Nonnull Order order) {
+  public Order addOrder(@Nonnull Order order, @Nonnull SendOrderDto orderDto) {
+    final var addedOrder = orderRepository.save(order);
+    final var orderProducts = orderProductService.addOrderProducts(orderDto, addedOrder.getId());
+    addedOrder.setProducts(orderProducts);
     return orderRepository.save(order);
   }
 
