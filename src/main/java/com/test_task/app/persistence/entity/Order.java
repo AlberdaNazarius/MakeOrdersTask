@@ -15,8 +15,9 @@ import java.util.Set;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-@FieldDefaults(level = AccessLevel.PRIVATE)
 @EqualsAndHashCode(exclude = "products")
+@ToString(exclude = "products")
+@FieldDefaults(level = AccessLevel.PRIVATE)
 public class Order {
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)

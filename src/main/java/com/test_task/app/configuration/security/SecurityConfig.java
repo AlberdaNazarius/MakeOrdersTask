@@ -18,6 +18,7 @@ public class SecurityConfig {
   private static final String LIST_AVAILABLE_GOODS = "/api/product/products";
   private static final String PLACE_ORDER = "/api/order";
   private static final String ADD_PRODUCT = "/api/product";
+  private static final String PAY_FOR_ORDER = "/api/order/{orderId}/payed";
 
   @Bean
   public InMemoryUserDetailsManager userDetailsManager() {
@@ -49,6 +50,8 @@ public class SecurityConfig {
                             .hasRole(RoleName.CLIENT.name())
                             .requestMatchers(mvc.pattern(ADD_PRODUCT))
                             .hasRole(RoleName.MANAGER.name())
+                            .requestMatchers(mvc.pattern(PAY_FOR_ORDER))
+                            .hasRole(RoleName.CLIENT.name())
                             .anyRequest().authenticated())
             .httpBasic(Customizer.withDefaults())
             .csrf(AbstractHttpConfigurer::disable)

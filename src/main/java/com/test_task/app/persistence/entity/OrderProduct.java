@@ -9,10 +9,11 @@ import lombok.experimental.FieldDefaults;
 @Entity
 @Table(name = "order_product")
 @Data
-@FieldDefaults(level = AccessLevel.PRIVATE)
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
+@FieldDefaults(level = AccessLevel.PRIVATE)
+@EqualsAndHashCode(exclude = {"order", "product"})
 public class OrderProduct {
   @EmbeddedId
   OrderProductId id;
