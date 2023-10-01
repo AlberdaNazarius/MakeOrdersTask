@@ -6,6 +6,11 @@ import lombok.Builder;
 import lombok.Value;
 import lombok.experimental.FieldDefaults;
 
+/**
+ * {@code RetrieveOrderProductDto} class is used to display information about products that was added to order.
+ *
+ * @see RetrieveOrderDto
+ */
 @Value
 @Builder
 @FieldDefaults(level = AccessLevel.PRIVATE)

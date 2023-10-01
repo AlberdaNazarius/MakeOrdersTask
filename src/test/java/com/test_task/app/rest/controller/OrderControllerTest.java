@@ -17,7 +17,6 @@ import org.springframework.http.HttpMethod;
 import org.springframework.http.HttpStatus;
 import org.springframework.test.context.junit4.SpringRunner;
 
-
 import static com.common.TestConstants.Attributes.Order.ORDER_ID;
 import static com.common.TestConstants.Dto.Order.SEND_ORDER_DTO;
 import static com.common.TestConstants.Dto.Product.PRODUCT_DTO;
